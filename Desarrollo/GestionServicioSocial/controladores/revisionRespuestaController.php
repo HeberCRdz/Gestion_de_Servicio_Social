@@ -40,6 +40,37 @@ class revisionRespuestaController extends BaseController {
     
     public function revisar(){
         $idSolicitud = $_REQUEST["idSolicitud"];
+        $doc = RevisionSolicitud::consultar($idSolicitud);
+        $formato = Formato::consultar((Archivo::consultar($doc->getIdArchivo()))->getId());
+        
+        $docPendiente = new DocumentoPendiente();
+        
+        $docPendiente->setId($doc->getId());
+        $docPendiente->setNoControl("D14325145");
+        $docPendiente->setEstudiante("Pablo Rodriguez");
+        $docPendiente->setDocumento($formato->getTitulo());
+        $docPendiente->setFecha($doc->getFechaHora());
+        $docPendiente->setNoRevision($doc->getNoRevision());
+        $docPendiente->setNotas($doc->getNotas());
+        $docPendiente->setIdArchivo($doc->getIdArchivo());
+        
+        ViewManager::mostrar("RevisionRespuesta", $docPendiente);
+    }
+    
+    public function descargarArchivo(){
+        
+        $archivo = Archivo::consultar($_GET["idArchivo"]);
+        $ruta = dirname(__DIR__)."/archivos/".$archivo->getUbicacionArchivo();
+        
+        if (is_file($ruta))
+        {
+           header('Content-Type: application/force-download');
+           header('Content-Disposition: attachment; filename='. basename($archivo->getUbicacionArchivo()));
+           header('Content-Transfer-Encoding: binary');
+           header('Content-Length: '.filesize($ruta));
+
+           readfile($ruta);
+        }
         
     }
 }

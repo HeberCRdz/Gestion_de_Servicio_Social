@@ -1,3 +1,6 @@
+<?php
+    require_once(dirname(__DIR__)."/componentes/Encabezado.php");
+?>
 <table>
     <tr>
         <th>Id</th>
@@ -17,8 +20,11 @@
             echo "<td>$row->Documento</td>";
             echo "<td>$row->Fecha</td>";
             echo "<td>$row->NoRevision</td>";
-            echo "<td><a href='".URL::construir("revisionRespuestaController","revisar",["idSolicitud"=>$row->Id])."'>Revisar</a></td>";
+            echo "<td><a href='".URL::construir("revisionRespuesta","revisar",["idSolicitud"=>$row->Id])."'>Revisar</a></td>";
             echo "</tr>";
         }
     ?>
 </table>
+<?php
+    require_once(dirname(__DIR__)."/componentes/PiePagina.php");
+?>

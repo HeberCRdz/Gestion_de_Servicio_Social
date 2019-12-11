@@ -11,6 +11,7 @@ class Archivo extends BaseRecord{
     
     public $Titulo;
     public $IdFormato;
+    public $UbicacionArchivo;
     
     function __construct(){
         parent::__construct("Archivos");
@@ -23,7 +24,11 @@ class Archivo extends BaseRecord{
     public function getIdFormato() {
         return $this->IdFormato;
     }
-
+    
+    public function getUbicacionArchivo() {
+        return $this->UbicacionArchivo;
+    }
+    
     public function setTitulo($Titulo): void {
         $this->Titulo = $Titulo;
     }
@@ -31,5 +36,9 @@ class Archivo extends BaseRecord{
     public function setIdFormato($IdFormato): void {
         $this->IdFormato = $IdFormato;
     }
-
+    
+    public function setUbicacionArchivo($UbicacionArchivo): void {
+        $this->IdFormato = $UbicacionArchivo;
+    }
+    
 }

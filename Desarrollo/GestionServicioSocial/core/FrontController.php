@@ -1,11 +1,11 @@
 <?php
-require_once(dirname(dirname(__FILE__))."/componentes/Portada.php");
 
 class FrontController
 {
     static function main(){
-
-        $nombreControlador = "paginaController";
+        session_start();
+        
+        $nombreControlador = "indexController";
         $accion = "index";
 
         if(isset($_GET["controlador"]))
@@ -15,7 +15,7 @@ class FrontController
             $accion = $_GET["accion"];
 
         if(!isset($_SESSION["IDUSUARIO"]) ){
-            $nombreControlador = "loginController";
+            $nombreControlador = "indexController";
         }
         
         require_once(dirname(dirname(__FILE__))."/controladores/$nombreControlador.php");

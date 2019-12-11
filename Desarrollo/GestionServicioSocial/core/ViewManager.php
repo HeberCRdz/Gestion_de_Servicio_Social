@@ -12,8 +12,9 @@ class ViewManager{
         }
         
         require_once(dirname(__DIR__)."/core/URL.php");
-        require_once(dirname(dirname(__FILE__))."/vistas/". $nombreVista."View.php");
-
+        require_once(dirname(__DIR__)."/vistas/". $nombreVista."View.php");
+        require_once(dirname(__DIR__)."/componentes/Mensaje.php");
+        
         unset($_SESSION["RESULTADO"]);
     }
 }

@@ -13,6 +13,8 @@ class DocumentoPendiente {
     public $Documento;
     public $Fecha;
     public $NoRevision;
+    public $Notas;
+    public $IdArchivo;
     
     public function getId() {
         return $this->Id;
@@ -37,7 +39,15 @@ class DocumentoPendiente {
     public function getNoRevision() {
         return $this->NoRevision;
     }
-
+    
+    public function getNotas() {
+        return $this->Notas;
+    }
+    
+    public function getIdArchivo() {
+        return $this->IdArchivo;
+    }
+    
     public function setId($Id): void {
         $this->Id = $Id;
     }
@@ -61,5 +71,13 @@ class DocumentoPendiente {
     public function setNoRevision($NoRevision): void {
         $this->NoRevision = $NoRevision;
     }
-
+    
+    public function setNotas($Notas): void {
+        $this->Notas = $Notas;
+    }
+    
+    public function setIdArchivo($IdArchivo): void {
+         $this->IdArchivo = $IdArchivo;
+    }
+    
 }
