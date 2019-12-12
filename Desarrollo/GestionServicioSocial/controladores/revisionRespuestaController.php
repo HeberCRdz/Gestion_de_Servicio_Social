@@ -20,6 +20,7 @@ class revisionRespuestaController extends BaseController {
         $docPendientesARevisar = RevisionSolicitud::consultarTodos("ESTADO='P'");
         
         foreach($docPendientesARevisar as $doc){
+       
             $docPendiente = new DocumentoPendiente();
             
             $formato = Formato::consultar((Archivo::consultar($doc->getIdArchivo()))->getId());
@@ -35,7 +36,42 @@ class revisionRespuestaController extends BaseController {
         }
         
         ViewManager::mostrar("ListadoDocPendientes", $datos);
-//        $this->redireccionar(URL::construir("camarero","consultar",["id"=>$id]));
+    }
+    
+    public function guardar(){
+        $solicitud = RevisionSolicitud::consultar($_REQUEST["idSolicitud"]);
+        $solicitudArchivo = Archivo::consultar($solicitud->getIdArchivo());
+ 
+        //Guardar archivo y copiar a directorio
+        
+        $archivo = new Archivo();
+        if(isset($_FILES["archivoRevisado"])){
+            $archivo->setIdFormato($solicitudArchivo->getIdFormato());
+            $archivo->setTitulo("Revisado".date("Ymdhi")."_".$_FILES["archivoRevisado"]["name"]);
+            $archivo->setUbicacionArchivo("revisionRespuestas/".$archivo->getTitulo());
+
+            move_uploaded_file($_FILES["archivoRevisado"]["tmp_name"], dirname(__DIR__)."/archivos/".$archivo->getUbicacionArchivo());
+            $archivo->guardar();
+        }
+        
+        //Actualizar solicitud de revisión
+        $estado = "E";
+        if(isset($_REQUEST["correcto"]))
+            $estado = "C";
+        
+        $solicitud->actualizarEstado($estado);
+        
+        //Guardar Revisión
+        $revision = new RevisionRespuesta();
+        $revision->setIdSolicitud($solicitud->getId());
+        $revision->setIdArchivo($archivo->getId());
+        $revision->setFechaHora(date("Y-m-d h:i:s"));
+        $revision->setComentarios($_REQUEST["comentarios"]);
+        $revision->setEstado($estado);
+        
+        $revision->guardar();
+        
+        $this->redireccionar(URL::construir("revisionRespuesta","index"), "C", "Datos Guardados Correctamente");
     }
     
     public function revisar(){
@@ -57,8 +93,7 @@ class revisionRespuestaController extends BaseController {
         ViewManager::mostrar("RevisionRespuesta", $docPendiente);
     }
     
-    public function descargarArchivo(){
-        
+    public function descargarArchivo(){     
         $archivo = Archivo::consultar($_GET["idArchivo"]);
         $ruta = dirname(__DIR__)."/archivos/".$archivo->getUbicacionArchivo();
         

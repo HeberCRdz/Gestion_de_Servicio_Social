@@ -10,6 +10,7 @@ class BaseRecord{
  
     function __construct($tabla){
         $this->_tabla = $tabla;
+        $this->Id = 0;
     }
 
     public function getId() {
@@ -20,7 +21,7 @@ class BaseRecord{
          $this->Id = $Id;
     }
     
-    protected function guardar(){
+    public function guardar(){
         $this->_error = "";
         try{
             Conexion::Instancia()->abrir();
@@ -28,39 +29,47 @@ class BaseRecord{
             $datos = [];
             foreach ($vars as $var => $valor){
                 if(substr($var, 0, 1) == "_") continue;
-                $datos[] = array($var => $valor);
+                $datos[$var] = $valor;
             }
-            if($this->id > 0)
-                $this->id = insertarDatos($datos);
+            if($this->Id <= 0)
+                $this->Id = $this->insertarDatos($datos);
             else
-                $this->id = actualizarDatos($this->id, $datos);
+                $this->Id = $this->actualizarDatos($this->Id, $datos);
         }catch(exception $ex){
             $this->_error = $ex->getMessage(); 
         }finally {
             Conexion::Instancia()->cerrar();
         }
-        return $this->id;
+        return $this->Id;
     }
     
-    protected function eliminar(){
+    public function eliminar(){
         $this->_error = "";
         try{
             Conexion::Instancia()->abrir();
-            $this->id = eliminarDatos("ID", $this->id);     
+            $this->Id = eliminarDatos("ID", $this->Id);     
         }catch(exception $ex){
             $this->_error = $ex->getMessage(); 
         }finally {
             Conexion::Instancia()->cerrar();
         }
-        return $this->id;
+        return $this->Id;
     }
     
     public static function consultar($id){
-        return self::consultarRegistros("ID = " . $id)[0];
+        $result = self::consultarRegistros("ID = " . $id);
+        if(count($result) <= 0)
+            return new static();
+        else
+            return $result[0];
     }
     
     public static function consultarPorCampo($campo, $valor){
-        return self::consultarRegistros("$campo = '$valor'")[0];
+        $result = self::consultarRegistros("$campo = '$valor'");
+        if(count($result) <= 0)
+            return new static();
+        else
+            return $result[0];
     }
     
     public static function consultarTodos($criterio = ""){
@@ -92,7 +101,7 @@ class BaseRecord{
             $campos .= (strlen($campos) > 0?",":"");
             $campos .= "$clave='$valor'";
         }
-        //echo "UPDATE $this->_tabla SET $campos WHERE ID=$id";
+        
         return Conexion::Instancia()->ejecutarComando("UPDATE $this->_tabla SET $campos WHERE ID=$id");
     }
 
@@ -115,7 +124,7 @@ class BaseRecord{
         try{
             Conexion::Instancia()->abrir();
 
-            $dt = Conexion::Instancia()->ejecutarConsulta("SELECT * FROM ". (new static())->_tabla ." WHERE ". $criterio); 
+            $dt = Conexion::Instancia()->ejecutarConsulta("SELECT * FROM ". (new static())->_tabla .(strlen($criterio)>0?" WHERE " . $criterio:"")); 
  
             if($dt) {
                 foreach($dt as $row){
@@ -136,8 +145,8 @@ class BaseRecord{
             Conexion::Instancia()->cerrar();
         } 
         
-        if(count($result) <= 0)
-            $result[] = new static();
+//        if(count($result) <= 0)
+//            $result[] = new static();
         
         return $result;
     }

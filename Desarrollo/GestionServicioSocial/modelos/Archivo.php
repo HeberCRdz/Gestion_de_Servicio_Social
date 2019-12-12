@@ -38,7 +38,7 @@ class Archivo extends BaseRecord{
     }
     
     public function setUbicacionArchivo($UbicacionArchivo): void {
-        $this->IdFormato = $UbicacionArchivo;
+        $this->UbicacionArchivo = $UbicacionArchivo;
     }
     
 }

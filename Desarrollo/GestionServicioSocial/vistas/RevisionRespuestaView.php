@@ -1,8 +1,8 @@
 <?php
     require_once(dirname(__DIR__)."/componentes/Encabezado.php");
 ?>
-<form name="frmRespuesta" method="POST" action="<?php echo URL::construir("revisionRespuestaController", "guardar")?>" onsubmit="return validar()">
-    <label>ID:</label><input name="idSolcitud" type="text" value="<?php echo $datos->getId() ?>" readonly="readonly">
+<form name="frmRespuesta" method="POST" action="<?php echo URL::construir("revisionRespuesta", "guardar")?>" enctype="multipart/form-data" onsubmit="return validar()">
+    <label>ID:</label><input name="idSolicitud" type="text" value="<?php echo $datos->getId() ?>" readonly="readonly">
     <label>Fecha:</label><input name="fecha" type="datetime" value="<?php echo $datos->getFecha() ?>" readonly="readonly">
     <br>
     <label>No. Control:</label><input name="noControl" type="text" value="<?php echo $datos->getId() ?>" readonly="readonly">

@@ -31,4 +31,9 @@ class indexController extends BaseController {
             ViewManager::mostrar("Login",null,"E","Usuario o contraseña incorrecto.");
         }
     }
+    
+    public function cerrarSesion(){
+        session_destroy();
+        $this->redireccionar(URL::construir("index","index"));
+    }
 }

@@ -1,3 +1,6 @@
+<?php
+    require_once(dirname(__DIR__)."/componentes/Encabezado.php");
+?>
 <form name="frmLogin" method="POST" action="<?php echo URL::construir("index", "ingresar")?>" onsubmit="return validar()">
     <label>Usuario:</label><input name="usuario" type="text"><br>
     <label>Contraseña:</label><input name="contrasenia" type="password"><br>
@@ -15,3 +18,6 @@
         return true;
     }
 </script>
+<?php
+    require_once(dirname(__DIR__)."/componentes/PiePagina.php");
+?>

@@ -19,6 +19,19 @@ class RevisionSolicitud extends BaseRecord  {
         parent::__construct("RevisionSolicitudes");
     }
     
+    public function actualizarEstado($estado){
+        $this->_error = "";
+        try{
+            Conexion::Instancia()->abrir();
+            $this->Id = $this->actualizarDatos($this->Id, ["ESTADO" => "$estado"]);
+        }catch(exception $ex){
+            $this->_error = $ex->getMessage(); 
+        }finally {
+            Conexion::Instancia()->cerrar();
+        }
+        return $this->Id;
+    }
+    
     public function getIdAlumno() {
         return $this->IdAlumno;
     }
