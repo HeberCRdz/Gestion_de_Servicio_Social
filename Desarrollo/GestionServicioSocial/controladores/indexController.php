@@ -28,6 +28,9 @@ class indexController extends BaseController {
             $_SESSION["TIPOUSUARIO"] = "E";
             $this->redireccionar(URL::construir("revision","index"));
         }else{
+            if(isset($_SESSION["IDUSUARIO"]))
+                unset($_SESSION["IDUSUARIO"]);
+            session_destroy();
             ViewManager::mostrar("Login",null,"E","Usuario o contraseña incorrecto.");
         }
     }

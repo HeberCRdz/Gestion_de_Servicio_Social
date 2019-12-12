@@ -1,6 +1,6 @@
         </section>
-        <section class="pie-pagina">
+        <footer>
             <p>ITSZN 2019</p>
-        </section>
+        </footer>
     </body>
 </html>

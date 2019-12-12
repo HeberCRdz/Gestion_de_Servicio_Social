@@ -1,0 +1,184 @@
+/* 
+    Created on : 12/12/2019, 10:03:35 AM
+    Author     : alarconlg
+*/
+
+body {
+    /*background-color: red;*/
+    --main-color: rgb(127, 0, 127);
+    --background-color: lightgray;
+    --font-color:  rgb(55, 55, 55);
+    font-family: "Open Sans", Arial, "Helvetice Neue", sans-serif;
+      
+    margin: 0;
+    
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.main-menu  {
+    display: flex;
+    flex-direction: row;
+  
+    background-color: white;
+}
+
+.imagen-logo {
+    padding: 5px;
+}
+
+.main-menu .opciones {
+    display: flex;
+    flex-direction: row;
+    padding: 10px
+}
+
+.main-menu .opciones > a{
+    padding: 10px 12px 10px 12px;
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+.main-menu .opciones > a:hover {
+    color: var(--font-color);
+    color: white;
+    background-color: var(--main-color);
+}
+
+.menu-usuario {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    margin-left: auto;   
+}
+
+.menu-usuario > a{
+    padding: 10px 12px 10px 12px;
+    text-decoration: none;
+    color: white;
+    background-color: var(--main-color);
+    cursor: pointer;
+}
+
+.menu-usuario > a:hover{
+    background-color: rgb(65, 0, 65);
+    cursor: pointer;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--font-color);
+    
+    background-color: white;
+}
+
+.contenido {
+    flex-grow: 1;
+    background-color: var(--background-color);
+    flex-direction: column;
+}
+
+.main-contenedor {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: var(--background-color);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;    
+    padding: 20px;
+    margin: 30px 10px 30px 10px;
+    background-color: white;
+}
+
+.form-group {
+    display: flex;
+}
+
+.form-col {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 0;
+    margin: 8px;
+    
+    /*background-color: red;*/
+}
+
+.group-right{
+    justify-content: flex-end;
+}
+
+.group-center{
+    justify-content: center;
+}
+
+.group-left{
+    justify-content: flex-start;
+}
+
+.button{
+    border: none;
+    padding: 8px 15px 8px 15px;
+    font-size: 16px;
+    color: white;
+    background-color: var(--main-color);
+}
+
+.button:hover {
+    background-color: rgb(65, 0, 65);
+    cursor: pointer;
+}
+
+.form-title {
+    margin: 0px 0px 5px 0px;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -1px;     
+    color: var(--font-color);
+}
+
+.login-img {
+    width: 150px;   
+}
+
+.listado {
+    display: flex;
+    flex-direction: column;    
+    border-collapse: collapse;
+    padding: 0px;
+    margin: 15px 8px 15px 8px;
+
+}
+
+.listado th {
+    color: var(--font-color);
+    padding: 10px 12px 10px 12px;
+    border-bottom: 1px solid var(--main-color);
+}
+
+.listado td {
+    padding: 10px 12px 10px 12px;
+    border-bottom: 1px solid lightgray;
+}
+
+.listado tr:hover {
+    background-color: lightgray;
+}
+
+.listado a{
+    padding: 5px 8px 5px 8px;
+    color: white;
+    text-decoration: none;
+    background-color: var(--main-color);
+}
+
+.listado a:hover {
+    background-color: rgb(65, 0, 65);
+    cursor: pointer;
+}
