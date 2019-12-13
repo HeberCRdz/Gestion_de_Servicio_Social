@@ -1,4 +1,5 @@
 <?php
+    $opcion = "DocPendientes";
     require_once(dirname(__DIR__)."/componentes/Encabezado.php");
 ?>
 <link rel="stylesheet" type="text/css" href="css/estilo_base.css">
@@ -24,7 +25,7 @@
                     echo "<td>$row->Documento</td>";
                     echo "<td>$row->Fecha</td>";
                     echo "<td>$row->NoRevision</td>";
-                    echo "<td><a href='".URL::construir("revisionRespuesta","revisar",["idSolicitud"=>$row->Id])."'>Revisar</a></td>";
+                    echo "<td><a class='button-link' href='".URL::construir("revisionRespuesta","revisar",["idSolicitud"=>$row->Id])."'>Revisar</a></td>";
                     echo "</tr>";
                 }
             ?>

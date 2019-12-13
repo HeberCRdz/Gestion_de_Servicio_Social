@@ -1,4 +1,5 @@
 <?php
+    $opcion = "DocPendientes";
     require_once(dirname(__DIR__)."/componentes/Encabezado.php");
 ?>
 <link rel="stylesheet" type="text/css" href="css/estilo_base.css">
@@ -39,15 +40,13 @@
                 <input name="noRevision" type="text" value="<?php echo $datos->getNoRevision() ?>" readonly="readonly">
             </div>
         </div> 
-        <div class="form-group group-center">
+        <div class="form-group group-center" >
             <div class="form-col">
                 <label>Documento:</label>
             </div>
             <div class="form-col">
-                <label><?php echo $datos->getDocumento() ?></label>
-            </div>
-            <div class="form-col">
-                <a name="descargarArchivo" class="button" href="<?php echo URL::construir("revisionRespuesta", "descargarArchivo", ["idArchivo" => $datos->getIdArchivo()])?>">Descargar</a>
+                <label class="cmp-izquierda" ><?php echo $datos->getDocumento() ?></label>
+                <a class="button-link cmp-izquierda" name="descargarArchivo" class="button" href="<?php echo URL::construir("revisionRespuesta", "descargarArchivo", ["idArchivo" => $datos->getIdArchivo()])?>">Descargar</a>
             </div>
         </div> 
         <div class="form-group group-left">
@@ -80,15 +79,15 @@
                 <input name="archivoRevisado" type="file" value="Seleccionar...">
             </div>
         </div> 
-        <div class="form-group group-center">
+        <div class="form-group group-center" >
             <div class="form-col">
-                <input name="correcto" type="checkbox"><label>DOCUMENTO CORRECTO<label>
+                <input class="button" name="correcto" type="checkbox"><label>DOCUMENTO CORRECTO</label>
             </div>
         </div> 
         <div class="form-group group-right">
             <div class="form-col group-right">
-                <input class="button" type="submit" value="Guardar">
-                <a class="button" href="<?php echo URL::construir("revisionRespuesta", "index")?>">Cancelar</a>
+                <input class="button button-margin-left" type="submit" value="Guardar">
+                <a class="button-link" href="<?php echo URL::construir("revisionRespuesta", "index")?>">Cancelar</a>
             </div>
         </div> 
     </form>

@@ -14,8 +14,9 @@ class FrontController
         if(isset($_GET["accion"]))
             $accion = $_GET["accion"];
 
-        if(!isset($_SESSION["IDUSUARIO"]) ){
+        if(!isset($_SESSION["IDUSUARIO"]) &&  $nombreControlador != "indexController"){
             $nombreControlador = "indexController";
+            $accion = "index";
         }
         
         require_once(dirname(dirname(__FILE__))."/controladores/$nombreControlador.php");

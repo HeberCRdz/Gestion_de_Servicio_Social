@@ -15,7 +15,7 @@
                 <label>Usuario:</label>
             </div>
             <div class="form-col">
-                <input name="usuario" type="text">
+                <input id="user" name="usuario" type="text">
             </div>
         </div>
         <div class="form-group">

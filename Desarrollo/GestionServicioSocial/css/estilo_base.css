@@ -26,6 +26,7 @@ body {
 
 .imagen-logo {
     padding: 5px;
+    margin-left: 10px;
 }
 
 .main-menu .opciones {
@@ -53,17 +54,22 @@ body {
     margin-left: auto;   
 }
 
-.menu-usuario > a{
-    padding: 10px 12px 10px 12px;
+.button-link {
+    padding: 8px 15px 8px 15px;
+    font-size: 16px;
     text-decoration: none;
     color: white;
     background-color: var(--main-color);
     cursor: pointer;
 }
 
-.menu-usuario > a:hover{
+.button-link:hover{
     background-color: rgb(65, 0, 65);
     cursor: pointer;
+}
+
+.menu-usuario > a{
+    padding: 10px 12px 10px 12px;
 }
 
 footer {
@@ -167,18 +173,33 @@ footer {
     border-bottom: 1px solid lightgray;
 }
 
-.listado tr:hover {
+.listado tr:not(:first-child):hover {
     background-color: lightgray;
 }
 
 .listado a{
     padding: 5px 8px 5px 8px;
-    color: white;
-    text-decoration: none;
-    background-color: var(--main-color);
 }
 
-.listado a:hover {
-    background-color: rgb(65, 0, 65);
-    cursor: pointer;
+input, textArea {
+    font-size: 16px;
+    font-family: "Open Sans", Arial, "Helvetice Neue", sans-serif;
+    
+}
+
+form[name=frmRespuesta] input[type=text], input[type=datetime], textArea {
+    width: 100%;
+}
+
+.button-margin-left {
+    margin-right: 10px;
+}
+
+.cmp-izquierda {
+    margin-left: auto;  
+}
+
+.opcion-select {
+    color: white !important;
+    background-color: var(--main-color);
 }

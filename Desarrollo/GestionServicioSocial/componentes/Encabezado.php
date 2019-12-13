@@ -14,17 +14,17 @@
                 <?php if(isset($_SESSION["IDUSUARIO"])) { ?>
                 <div class="opciones">
                     <?php if($_SESSION["TIPOUSUARIO"] == "A"){ 
-                        echo "<a href='".URL::construir("usuarios", "index")."'>Gestionar Usuarios</a>";
+                        echo "<a id='GestionarUsuarios' ".($opcion == "GestionarUsuarios" ? "class='opcion-select'" : "")." href='".URL::construir("usuarios", "index")."'>Gestionar Usuarios</a>";
                     } else if($_SESSION["TIPOUSUARIO"] == "J"){ 
-                        echo "<a href='".URL::construir("alumnos", "index")."'>Gestionar Alumnos</a>";
-                        echo "<a href='".URL::construir("revisionRespuesta", "index")."'>Documentos Pendientes a Revisar</a>";
+                        echo "<a id='GestionarAlumnos' ".($opcion == "GestionarAlumnos" ? "class='opcion-select'" : "")." href='".URL::construir("alumnos", "index")."'>Gestionar Alumnos</a>";
+                        echo "<a id='DocPendientes' ".($opcion == "DocPendientes" ? "class='opcion-select'" : "")." href='".URL::construir("revisionRespuesta", "index")."'>Documentos Pendientes a Revisar</a>";
                     } else if($_SESSION["TIPOUSUARIO"] == "E"){ 
-                        echo "<a href='".URL::construir("revision", "index")."'>Enviar Documento</a>";
+                        echo "<a id='EnviarDoc' ".($opcion == "EnviarDoc" ? "class='opcion-select'" : "")." href='".URL::construir("revision", "index")."'>Enviar Documento</a>";
                     }              
                     ?>
                 </div>
                 <div class="menu-usuario">
-                    <a href="<?php echo URL::construir("index","cerrarSesion")?>">Cerrar sesión</a>
+                    <a class="button-link" href="<?php echo URL::construir("index","cerrarSesion")?>">Cerrar sesión</a>
                 </div>
                 <?php } ?>
             </div>
