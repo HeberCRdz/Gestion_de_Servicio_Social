@@ -1,4 +1,9 @@
 <?php
+/*
+ * 
+ * 
+ * 
+ */
 require_once(dirname(dirname(__FILE__))."/config/Config.php");
 
 class Conexion{

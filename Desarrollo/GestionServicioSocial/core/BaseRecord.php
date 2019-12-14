@@ -144,10 +144,7 @@ class BaseRecord{
         }finally {
             Conexion::Instancia()->cerrar();
         } 
-        
-//        if(count($result) <= 0)
-//            $result[] = new static();
-        
+
         return $result;
     }
 }
