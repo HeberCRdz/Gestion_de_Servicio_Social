@@ -1,0 +1,64 @@
+
+body {
+
+    font-family: "Open Sans", Arial, "Helvetice Neue", sans-serif;
+    margin: 0;
+    
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.main-menu  {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+}
+
+.form{
+    font-weight: bold;
+	position:relative;
+	width:500px;
+	height:600px;
+	padding-left: 20px;
+	padding-top: 15px;
+	background-color:lightgray;
+	border-radius: 20px;
+	margin:auto;
+    font-family: "Open Sans", Arial, "Helvetice Neue", sans-serif;
+}
+
+input[type=text]{
+    
+	width:470px;
+	height:35px;
+	font: "14px Open Sans", Arial, "Helvetice Neue", sans-serif; 
+}
+
+textarea{
+    font-weight: bold;
+	width: 470px;
+	height: 110px;
+	font: "14px Open Sans", Arial, "Helvetice Neue", sans-serif;
+}
+
+input[type=submit]{
+	position:relative;
+    color: white;
+    font-weight: bold;
+	width:150px;
+	height:40px;
+	border-radius:50px;
+	margin-left: 150px;
+	border:0px;
+	background-color:rgb(65, 0, 65);
+	font: "20px Open Sans", Arial, "Helvetice Neue", sans-serif;
+}
+
+p{
+    
+    font-weight: bold;
+	text-shadow:0 1px 0 #fff ;
+	font-size:"Open Sans";
+    font: "Open Sans";
+}
