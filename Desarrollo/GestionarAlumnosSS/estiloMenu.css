@@ -1,0 +1,162 @@
+body {
+    background-color: #F8F8FF;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    line-height: 18px;
+    color: black;
+}
+
+#titulo {
+    margin: auto;
+    width: 950px;
+}
+
+.right {
+    background-color: white;
+    width: 500px;
+    height: 100px;
+    float: right;
+    text-align: center;
+    font-family: times new roman;
+}
+
+.right img {
+    width: 170px;
+    height: 100px;
+    float: right;
+}
+
+.left {
+    color: #57626a;
+    background-color: white;
+    width: 400px;
+    height: 100px;
+    float: left;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: Bell MT;
+}
+
+.left img {
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+
+.left h3 {
+    font: times new roman;
+    font-size: 35px;
+}
+
+#opcion h2 {
+    text-decoration: none;
+    font-family: Bell MT;
+    font-size: 35px;
+    font-weight: 100;
+}
+
+#opcion {
+    margin: auto;
+    width: 950px;
+    padding: 10px;
+    text-align: center;
+}
+
+#opcion a {
+    text-decoration: none;
+    color: black;
+}
+
+#opcion a:hover {
+    background-color: purple;
+    color: white;
+}
+
+#agregar {
+    border-radius: 30px;
+    text-align: right;
+    margin: auto;
+    background-color: purple;
+    width: 450px;
+    padding: 15px;
+}
+
+#agregar form {
+    font-size: 30px;
+    font-family: times new roman;
+    color: azure;
+}
+
+#agregar input {
+    border-radius: 5px;
+}
+
+#agregar input:hover{
+    background-color: gainsboro;
+}
+
+#footer {
+    background: #eee;
+    border-top: 3px solid #57626a;
+    margin-top: 20px;
+    text-align: center;
+    color: #333;
+    font-size: 11px;
+    padding: 10px;
+}
+
+#footer a {
+    font-size: 25px;
+    font-family: times new roman;
+    text-decoration: none;
+    color: black;
+}
+
+#footer a:hover {
+    color: white;
+    background-color: purple;
+}
+
+#guardar {
+    text-align: center;
+    font-family: times new roman;
+    font-size: 25px;
+}
+
+#tabla table {
+    font-family: times new roman;
+    text-align: center;
+    color: white;
+    background-color: #57626a;
+    padding: 15px;
+    
+}
+
+#buscar {
+    border-radius: 20px;
+    width: 450px;
+    padding: 15px;
+    text-align: right;
+    background-color: purple;
+    text-align: center;
+    font-family: times new roman;
+    font-size: 25px;
+    color: white;
+}
+
+#buscar input {
+    font-family: times new roman;
+    font-size: 25px;
+    border-radius: 5px;
+}
+
+#buscar input:hover {
+    background-color: gainsboro;
+}
+
+
+
+
+
+
